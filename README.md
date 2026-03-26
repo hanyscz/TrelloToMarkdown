@@ -1,6 +1,6 @@
 # Trello to Markdown Exporter
 
-<img src="chrome-extension/icon.png" width="128" />
+<img src="chrome-extension/icons/icon128.png" width="128" />
 
 A simple, secure, and beautiful tool to completely export your Trello boards and cards to Markdown. 
 It operates entirely locally in your browser without sending any data to external servers.

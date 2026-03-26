@@ -4,12 +4,39 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .lang-switcher {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+        select#lang-select {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            outline: none;
+        }
+        select#lang-select option { background: #0d1117; color: #fff; }
+    </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="position:relative;">
+        <div class="lang-switcher">
+            <select id="lang-select">
+                <option value="cz">🇨🇿 CZ</option>
+                <option value="en">🇬🇧 EN</option>
+                <option value="de">🇩🇪 DE</option>
+            </select>
+        </div>
+        
         <header>
-            <h1>Trello <span>to</span> Markdown</h1>
-            <p id="status-message">Ověřuji záložku...</p>
+            <h1 data-i18n-html="title">Trello <span>to</span> Markdown</h1>
+            <p id="status-message" data-i18n="statusExtLoading">Ověřuji záložku...</p>
         </header>
 
         <div id="loading" class="spinner"></div>
@@ -18,28 +45,28 @@
             <div class="settings-panel">
                 <div class="settings-list">
                     <label class="toggle-control">
-                        <span class="label-text">Zahrnout archivované</span>
+                        <span class="label-text" data-i18n="optArchived">Zahrnout archivované</span>
                         <div class="toggle-switch">
                             <input type="checkbox" id="include-archived">
                             <span class="slider"></span>
                         </div>
                     </label>
                     <label class="toggle-control">
-                        <span class="label-text">Zahrnout komentáře</span>
+                        <span class="label-text" data-i18n="optComments">Zahrnout komentáře</span>
                         <div class="toggle-switch">
                             <input type="checkbox" id="include-comments" checked>
                             <span class="slider"></span>
                         </div>
                     </label>
                     <label class="toggle-control">
-                        <span class="label-text">Zahrnout checklisty</span>
+                        <span class="label-text" data-i18n="optChecklists">Zahrnout checklisty</span>
                         <div class="toggle-switch">
                             <input type="checkbox" id="include-checklists" checked>
                             <span class="slider"></span>
                         </div>
                     </label>
                     <label class="toggle-control">
-                        <span class="label-text">Zahrnout splněné body</span>
+                        <span class="label-text" data-i18n="optCompleted">Zahrnout splněné body</span>
                         <div class="toggle-switch">
                             <input type="checkbox" id="include-completed-items" checked>
                             <span class="slider"></span>
@@ -50,10 +77,10 @@
 
             <div class="actions">
                 <button id="btn-copy" class="btn primary">
-                    Kopírovat (📋)
+                    <span data-i18n="btnCopy">Kopírovat (📋)</span>
                 </button>
                 <button id="btn-download" class="btn secondary">
-                    Uložit .md
+                    <span data-i18n="btnDownloadExt">Uložit .md</span>
                 </button>
             </div>
         </main>

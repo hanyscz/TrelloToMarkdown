@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Trello <span>to</span> Markdown</h1>
+            <p id="status-message">Ověřuji záložku...</p>
+        </header>
+
+        <div id="loading" class="spinner"></div>
+
+        <main id="main-ui" class="hidden">
+            <div class="settings-panel">
+                <div class="settings-list">
+                    <label class="toggle-control">
+                        <span class="label-text">Zahrnout archivované</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="include-archived">
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                    <label class="toggle-control">
+                        <span class="label-text">Zahrnout komentáře</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="include-comments" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                    <label class="toggle-control">
+                        <span class="label-text">Zahrnout checklisty</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="include-checklists" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                    <label class="toggle-control">
+                        <span class="label-text">Zahrnout splněné body</span>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="include-completed-items" checked>
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="btn-copy" class="btn primary">
+                    Kopírovat (📋)
+                </button>
+                <button id="btn-download" class="btn secondary">
+                    Uložit .md
+                </button>
+            </div>
+        </main>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

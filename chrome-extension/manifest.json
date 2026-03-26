@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Trello to Markdown",
+  "version": "1.0",
+  "description": "Exportujte aktuální Trello nástěnku nebo kartu do Markdownu jedním kliknutím.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://trello.com/*",
+    "*://*.trello.com/*"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Trello to Markdown"
+  }
+}

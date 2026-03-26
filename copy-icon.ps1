@@ -1,0 +1,1 @@
+Copy-Item "$env:USERPROFILE\.gemini\antigravity\brain\370f82f9-5790-4af4-92c5-5a3386aaa620\trello_md_icon_1774562861483.png" -Destination "c:\Users\Hanys\source\repos\TrellonToMarkdown\chrome-extension\icon.png"

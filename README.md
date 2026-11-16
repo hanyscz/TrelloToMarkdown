@@ -65,27 +65,19 @@ Vše funguje zcela lokálně ve vašem prohlížeči, žádná data se neodesíl
 
 ## Formátovaný checklist v Trellu
 
-Formátování se dělá přímo v nativním formuláři Trella, žádné samostatné editační okno neexistuje. Po načtení nebo změně rozšíření znovu načtěte rozšíření v `chrome://extensions` a obnovte kartu Trella. Pak klikněte na položku checklistu (nebo otevřete **Přidat položku**); nad nativním polem se objeví kompaktní panel nástrojů:
+Rozšíření přidává nad nativní pole položky checklistu malý panel nástrojů. Vkládá jen **běžný Markdown, který Trello samo vykreslí** – bez rozšíření se nic nerozbije a uživatel uvidí totéž (jen bez barev odznaků). Po změně načtěte rozšíření znovu v `chrome://extensions` a obnovte kartu Trella.
 
-- **B**, **I**, **S** – tučné, kurzíva, přeškrtnutí výběru (opakované kliknutí formát odebere).
-- **A** – barva textu; otevře malý panel s předvolbami a vlastní barvou.
-- **🏷** – vloží odznak z konfigurace na pozici kurzoru.
-- **¶** – vloží nový řádek; dvakrát za sebou udělá prázdný řádek (nový odstavec).
-- **—** – vloží oddělovač sekce.
-- **⌫** – odebere značky formátování z výběru.
-- **⚙** – otevře nastavení odznaků.
+- **✓ HOTOVO** – vloží `` `HOTOVO 16.11.` `` na úplný začátek textu (opakovaný klik přepíše datum). **✕** ho odebere. Checklist se nezaškrtává.
+- **EDIT** – vloží `` `EDIT 16.11.` `` na kurzor.
+- **B**, **I**, **S** – `**tučně**`, `*kurzíva*`, `~~přeškrtnuto~~` (opakované kliknutí značky odebere).
+- **</>** kód, **🔗** odkaz `[text](url)`.
+- **¶** – vloží prázdný řádek = nový odstavec.
 
-První řádek lišty tvoří dvě rychlé tlačítka: **✓ HOTOVO** a **✕**. **✓ HOTOVO** vloží odznak s dnešním datem (`d.m.`) na úplný začátek textu položky – checklist se přitom nezaškrtne, takže si ho můžete zaškrtnout sami po kontrole. Opakovaný klik jen přepíše datum. **✕** odebere pouze odznak HOTOVO stojící v hlavičce textu (mezi úvodními odznaky); odznaky **EDIT**/**R.EDIT** ani HOTOVO uprostřed textu nikdy nesmaže. Ostatní odznaky včetně **EDIT** a **R.EDIT** vkládáte přes **🏷**; i tam se do odznaku přidá dnešní datum.
+Odznaky jsou inline kód, který Trello zobrazí jako šedý čip; rozšíření čipy `HOTOVO` a `EDIT` jen obarví (zeleně / oranžově).
 
-### HOTOVO jedním klikem přímo v seznamu
+**Důležité omezení Trella (ověřeno):** jeden nový řádek se zobrazí jako mezera; odstavec dělá jen prázdný řádek. Tvrdý zlom (dvě mezery nebo `\` před novým řádkem) **shodí vykreslení celé karty** (`Token type hardbreak not supported`). Rozšíření proto takové konce řádků před uložením vždy odstraní. Totéž platí pro agenty zapisující přes MCP – viz [docs/trello-mcp-agent-manual.md](docs/trello-mcp-agent-manual.md).
 
-Vedle každé položky checklistu je malé tlačítko **✓**. Klikne za vás nativní úpravu, vloží (nebo odebere) odznak HOTOVO s dnešním datem a sám stiskne nativní **Uložit** – editační pole se otevře jen na okamžik. Zelené **✓** znamená, že položka už HOTOVO v hlavičce má. Zaškrtávací políčko zůstává nedotčené.
-
-Text v poli zůstává čitelný (značky `[[b]]`, `[[color=#…]]`, `[[badge=…]]`). Teprve při uložení – nativním **Uložit**/**Přidat** nebo Enterem – se obsah zabalí do jednoho fyzického řádku s prefixem `[[ttm:line:v1]]`, takže Trello ho uloží jako jednu položku. V seznamu checklistu se pak zobrazí barevný náhled místo značek; kliknutím na náhled otevřete nativní úpravu. Nové položky se zakládají stejným nativním formulářem.
-
-Konfigurace odznaků je v možnostech rozšíření. Selector DOM Trella se může změnit; živý serverový round-trip ověřte ručně na vlastní odhoditelné položce. Popup i samostatný exporter rozpoznávají transportní obálku a exportují dekódovaný Markdown.
-
-**Pro agenty zapisující do Trella přes MCP:** viz [docs/trello-mcp-agent-manual.md](docs/trello-mcp-agent-manual.md) – popis dvou vrstev formátu, značek, úmluvy odznaků s datem a otestovaná referenční implementace v Pythonu.
+Položky uložené starou verzí (`[[ttm:line:v1]]…`) rozšíření už nepřevádí; zobrazí se jako surový text.
 
 ## Předání klientovi
 

@@ -1,16 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "Trello to Markdown",
-  "version": "1.0",
-  "description": "Exportujte aktuální Trello nástěnku nebo kartu do Markdownu jedním kliknutím.",
+  "name": "Trello Rich Checklist",
+  "version": "2.0.0",
+  "description": "Formátování položek checklistu v Trellu (tučné, odstavce, odznaky HOTOVO a EDIT) a export karet do Markdownu.",
   "permissions": [
-    "activeTab",
-    "storage"
+    "activeTab"
   ],
   "host_permissions": [
-    "*://trello.com/*",
-    "*://*.trello.com/*"
+    "https://trello.com/*"
   ],
+  "content_scripts": [{
+    "matches": ["https://trello.com/*"],
+    "js": ["rich-checklist/format.js", "rich-checklist/native-adapter.js", "rich-checklist/content.js"],
+    "css": ["rich-checklist/content.css"],
+    "run_at": "document_idle"
+  }],
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",

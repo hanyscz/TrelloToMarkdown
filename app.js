@@ -328,7 +328,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 cl.checkItems.forEach(item => {
                                     if (!includeCompletedItems.checked && item.state === 'complete') return;
                                     const isChecked = item.state === 'complete' ? 'x' : ' ';
-                                    md += `- [${isChecked}] ${item.name}\n`;
+                                    const rich = globalThis.TrelloRichChecklist;
+                                    md += rich ? rich.checkboxMarkdown(item.name, isChecked === 'x') : `- [${isChecked}] ${item.name}\n`;
                                 });
                             }
                             md += `\n`;

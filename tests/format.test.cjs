@@ -69,3 +69,9 @@ test('badgeKind recognises only HOTOVO and EDIT chips', () => {
   assert.equal(F.badgeKind('EDITOR'), null);
   assert.equal(F.badgeKind('kód'), null);
 });
+
+test('wrap keeps edge whitespace outside the markers (Trello will not render "**x **")', () => {
+  assert.equal(F.bold('a Tučné b', 1, 8).value, 'a **Tučné** b');
+  assert.equal(F.bold('a x', 1, 3).value, 'a **x**');
+  assert.equal(F.bold('   ', 0, 3).value, '   ');
+});

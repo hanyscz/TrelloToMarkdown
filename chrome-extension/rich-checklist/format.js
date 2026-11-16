@@ -51,7 +51,11 @@
       const from = start - open.length;
       return result(value.slice(0, from) + selected + value.slice(end + close.length), from, from + selected.length);
     }
-    return result(value.slice(0, start) + open + selected + close + value.slice(end), start + open.length, end + open.length);
+    // Markdown neuzavře značku za mezerou ("**text **" se nevykreslí) – mezery na krajích výběru zůstanou venku
+    const lead = /^\s*/.exec(selected)[0].length, trail = selected.length - lead ? /\s*$/.exec(selected)[0].length : 0;
+    if (lead + trail >= selected.length) return result(value, start, end);
+    const from = start + lead, to = end - trail;
+    return result(value.slice(0, from) + open + value.slice(from, to) + close + value.slice(to), from + open.length, to + open.length);
   }
 
   const bold = (v, s, e) => wrap(v, s, e, '**');

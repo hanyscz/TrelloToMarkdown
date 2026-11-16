@@ -99,7 +99,7 @@ storage of the extension on your device and is never sent anywhere.
 
 No analytics, no remote code, no third-party servers.
 
-Contact: <tvůj e-mail>
+Contact: hanys.cz@gmail.com
 ```
 
 ---
@@ -110,5 +110,5 @@ Contact: <tvůj e-mail>
 - [ ] verze v `manifest.json` je vyšší než poslední publikovaná
 - [ ] `npm test` prošlo (17/17)
 - [ ] ruční test v Trellu: panel v editoru (B/I/S/kód/odkaz/¶, HOTOVO, EDIT), uložení a znovuotevření, žádná chyba „Něco se pokazilo“
-- [ ] screenshot 1280×800 připravený
+- [x] screenshot 1280×800 připravený: `store/screenshot-1280x800.png`
 - [ ] privacy policy URL veřejně dostupná
